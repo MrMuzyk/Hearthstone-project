@@ -1,0 +1,13 @@
+.card-image{
+  width: 50px;
+  height: auto;
+}
+
+.card-image-container{
+  display: inline-block;
+}
+
+.cards-container{
+  display: flex;
+  flex-flow: row wrap;
+}

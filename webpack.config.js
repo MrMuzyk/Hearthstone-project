@@ -5,7 +5,9 @@ module.exports = {
     output: {
         filename: "./js/out.js"
     },
-
+    resolve: {
+    extensions: [".jsx", ".js"]
+    },
     watch: true,
     module: {
 
