@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+.body-background{
+  background-image: url("/images/stressed_linen.png");
+  background-size: cover;
+  background-repeat: repeat-y;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.card-image{
+  width: 50px;
+  height: auto;
+}
+
+.card-image-container{
+  display: inline-block;
+}
+
+.cards-container{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .nav-bar-options{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+    li{
+        margin-left: 20px
+    }
+  }
+}
+
+.footer{
+  position: absolute;
+  bottom: 20px
+}
+
+.main-container{
+  margin-left: 80px;
+  margin-right: 80px;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.slider-container{
+  max-width: 100%;
+  margin-bottom: 100px;
+}
+
+.browse-slide{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.create-slide{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px
+}
+
+.about-slide{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px
+}
+
+.owl-stage-outer{
+  border-radius: 20px
+}
+
+.nav-bar{
+  margin-left: 10px;
+  padding-top: 20px
+}
+
+.nav-bar-logo{
+  color: #DDDDDD;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-bar-options{
+  li{
+    text-align: center;
+  }
+  .nav-bar-link{
+    color: #DDDDDD;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 2px;
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+}
+
+.content-container{
+  margin-top: 30px
+}
+
+.all-cards-list{
+  list-style-type: none;
+}
+
+.all-cards-list-item{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  li{
+    margin-right: 10px;
+    color: white
+  }
+}
+
+.create-deck-container{
+  color: white;
+  display: flex;
+  flex-direction: row;
+}

@@ -18,6 +18,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.10",
     "node-sass": "^4.7.2",
+    "react-owl-carousel2": "^0.3.0",
+    "react-responsive-carousel": "^3.1.37",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.2",
     "webp-cli": "^1.0.2",

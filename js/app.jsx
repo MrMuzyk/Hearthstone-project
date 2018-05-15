@@ -1,6 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router,
+    Route,
+    Link,
+    IndexRoute,
+    hashHistory } from 'react-router';
 import ExpansionContainer from '../components/expansionContainer.jsx';
+import BrowseCards from '../components/BrowseCards.jsx';
+import NavBar from '../components/NavBar.jsx';
+import Footer from '../components/Footer.jsx';
+import Carousel from '../components/Slider.jsx';
+import OwlCarousel from 'react-owl-carousel2';
+import CreateDeck from '../components/CreateDeck.jsx';
+require ("../styles/main.scss");
 
 class App extends React.Component {
 
@@ -52,7 +64,8 @@ class App extends React.Component {
             expansionsNames: expansionsNames
           })
       }).catch( error => {
-          console.log(error)
+          console.log(error);
+          console.log("wysypalem sie");
       })
     }
 
@@ -62,20 +75,67 @@ class App extends React.Component {
     }
 
     render(){
-        if (this.state.isLoading) {
-          return <div>Loading</div>
-        }
-        else {
-        return <div>
-          {
-            this.state.expansionsNames.map( (elem, i) => {
-              return <ExpansionContainer key={i} expansionName={elem} expansionCards={ this.state.expansionCards[i]} />
-            })
-          }
-          </div>
-        }
+        return  <Router history={hashHistory} >
+          <Route path="/" component={Template}>
+              <IndexRoute component={LandingPage} />
+              <Route path="/browseCards" component={ props => <BrowseCardsPage expansionsNames={this.state.expansionsNames} expansionCards={this.state.expansionCards} isLoading={this.state.isLoading} {...props}/>} />
+              <Route path="/createDeck" component={ props => <CreateDeckPage expansionsNames={this.state.expansionsNames} expansionCards={this.state.expansionCards} isLoading={this.state.isLoading} {...props}/>} />
+              <Route path="/yourDecks" component={YourDecks} />
+              <Route path="/aboutProject" component={AboutProject} />
+          </Route>
+        </Router>
+
 
     }
+}
+
+class Template extends React.Component{
+  render(){
+    return <div className="main-container">
+      <NavBar />
+      <div className="content-container">
+        {this.props.children}
+      </div>
+    </div>
+  }
+}
+
+class LandingPage extends React.Component{
+  render(){
+    return <Carousel />
+  }
+}
+
+class BrowseCardsPage extends React.Component{
+  render(){
+      return <div>
+        <BrowseCards expansionsNames={this.props.expansionsNames} expansionCards={this.props.expansionCards} isLoading={this.props.isLoading}/>
+        </div>
+  }
+}
+
+class CreateDeckPage extends React.Component{
+  render(){
+    return <div>
+      <CreateDeck expansionsNames={this.props.expansionsNames} expansionCards={this.props.expansionCards} isLoading={this.props.isLoading}/>
+    </div>
+  }
+}
+
+class YourDecks extends React.Component{
+  render(){
+    return <div>
+      <div>Your decks</div>
+    </div>
+  }
+}
+
+class AboutProject extends React.Component{
+  render(){
+    return <div>
+      <div>About project</div>
+    </div>
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function(){
