@@ -7,6 +7,7 @@ import { Router,
     hashHistory } from 'react-router';
 import ExpansionContainer from '../components/expansionContainer.jsx';
 import BrowseCards from '../components/BrowseCards.jsx';
+import YourDecks from '../components/YourDecks.jsx';
 import NavBar from '../components/NavBar.jsx';
 import Footer from '../components/Footer.jsx';
 import Carousel from '../components/Slider.jsx';
@@ -122,10 +123,10 @@ class CreateDeckPage extends React.Component{
   }
 }
 
-class YourDecks extends React.Component{
+class YourDecksPage extends React.Component{
   render(){
     return <div>
-      <div>Your decks</div>
+      <YourDecks />
     </div>
   }
 }

@@ -7,6 +7,8 @@ class CreateDeck extends React.Component{
     super(props);
     this.state = {
       createdDeck: [],
+      decksName: '',
+      allDecks: JSON.parse(localStorage.getItem('decks')),
     }
   }
 
@@ -25,7 +27,23 @@ class CreateDeck extends React.Component{
 
   saveDeck = (e) =>{
     e.preventDefault();
-    localStorage.setItem('deck', this.state.createdDeck);
+    var allDecksArr = this.state.allDecks;
+    var createdDeckObject = {name: this.state.decksName, cards: this.state.createDeck}
+    allDecksArr.push(createdDeckObject);
+    this.setState({
+      allDecks: allDecksArr
+    })
+    localStorage.setItem('decks', JSON.stringify(this.state.allDecks));
+    this.setState({
+      createdDeck: [],
+      decksName: '',
+    })
+  }
+
+  decksNameChange = (e) =>{
+    this.setState({
+      decksName: e.target.value
+    })
   }
 
   render(){
@@ -35,7 +53,7 @@ class CreateDeck extends React.Component{
     else {
       return <div className="create-deck-container">
         <div>
-            Card list
+            Card list:
           <ul className="all-cards-list">
             {
               this.props.expansionsNames.map( (elem, i) => {
@@ -59,6 +77,7 @@ class CreateDeck extends React.Component{
         </div>
         <div>
           Your deck
+          <input type="text" name="decks-name" value={this.state.decksName} onChange={this.decksNameChange} placeholder="Your deck's name"/>
           <ul>
             {
               this.state.createdDeck.map( (elem, i) => {
